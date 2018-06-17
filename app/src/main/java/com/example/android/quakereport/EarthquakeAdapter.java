@@ -14,12 +14,14 @@ import java.util.Date;
 import java.text.DecimalFormat;
 import android.graphics.drawable.GradientDrawable;
 import java.util.ArrayList;
+import java.util.List;
+
 import android.support.v4.content.ContextCompat;
 
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
-    public EarthquakeAdapter(Context context, ArrayList<Earthquake> earthquakes){
+    public EarthquakeAdapter(Context context, List<Earthquake> earthquakes){
         super(context, 0, earthquakes);
 
     }

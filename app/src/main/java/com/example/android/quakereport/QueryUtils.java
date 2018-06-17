@@ -26,19 +26,9 @@ public final class QueryUtils {
     /** Tag for the log messages */
     public static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
-    /**
-     * Create a private constructor because no one should ever create a {@link QueryUtils} object.
-     * This class is only meant to hold static variables and methods, which can be accessed
-     * directly from the class name QueryUtils (and an object instance of QueryUtils is not needed).
-     */
+
     private QueryUtils() {
     }
-
-    /**
-     * Return a list of {@link Earthquake} objects that has been built up from
-     * parsing a JSON response.
-     */
-
 
 
 
@@ -59,7 +49,7 @@ public final class QueryUtils {
             Log.e(LOG_TAG, "json Response empty!!!!!!!!!!", e);
         }
 
-        Log.v("earthquakes", "...............jsonResponse........"+jsonResponse );
+        //Log.v("earthquakes", "...............jsonResponse........"+jsonResponse );
 
         // Create an empty ArrayList that we can start adding earthquakes to
         List<Earthquake> earthquakes = new ArrayList<>();
@@ -81,8 +71,9 @@ public final class QueryUtils {
                 double magnitude = properties.getDouble("mag");
                 String location = properties.getString("place");
                 long time = properties.getLong("time");
+                String quake_url = properties.getString("url");
 
-                Earthquake earthquake = new Earthquake(magnitude,location,time);
+                Earthquake earthquake = new Earthquake(magnitude,location,time,quake_url);
                 earthquakes.add(earthquake);
 
                 Log.v("earthquakes", "-----------------------" + location + " " + magnitude );
@@ -140,7 +131,7 @@ public final class QueryUtils {
             }
             //Log.v("jsonresponse",jsonResponse);
         } catch (IOException e) {
-            // TODO: Handle the exception
+            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();

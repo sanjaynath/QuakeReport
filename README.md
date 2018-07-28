@@ -20,3 +20,6 @@ This sample uses the Gradle build system. To build this project, use "Import Pro
 
 
 
+
+![screen shot 2018-07-28 at 3 09 51 pm](https://user-images.githubusercontent.com/21357853/43355362-74be7dc8-9278-11e8-9cf7-de14dbb33969.png)
+
